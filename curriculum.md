@@ -1,352 +1,278 @@
 # 📅 60-Day Detailed Curriculum: Agentic AI & Enterprise DevOps
 
-## 📌 Phase 1: Production Python, PowerShell, Git & Coolify DevOps (Days 1–7)
-*Focus: Level up scripting languages to production standards and master modern containerized self-hosting.*
+---
+
+## 📌 Phase 1: Job-Ready Foundation (Days 1–10)
+*Goal: Acquire essential programming, DevOps, database, automation, and basic AI orchestration skills to become instantly hirable for engineering roles.*
 
 ---
 
 ### Day 1: Production-Ready Python
-* **Objective**: Move beyond scripts to production Python code using asynchronous programming, type safety, and package management.
-* **Topics**: Asyncio, event loops, type hints, Pydantic v2 validation, Poetry package management.
-* **Practice Lab**: Build an asynchronous script that fetches data from multiple public REST APIs concurrently, parses responses into Pydantic models, handles rate limits (backoff), and logs errors using the `logging` module.
+* **Objective**: Write enterprise-grade, asynchronous, type-safe Python code.
+* **Concepts**: Asyncio event loops, type-hinting, Pydantic v2 validation, Poetry package management.
+* **Practice Lab**: Build an async Python script fetching data concurrently from three public REST APIs. Parse results with Pydantic, implement rate-limiting backoffs, and write structured logs.
 
-### Day 2: Production PowerShell & Git Workflows
-* **Objective**: Write enterprise-grade, secure, and debuggable PowerShell scripts.
-* **Topics**: Advanced functions, error handling (`Try/Catch`), signing scripts, Git branching patterns, conventional commits, and pre-commit hooks.
-* **Practice Lab**: Develop an advanced PowerShell script with parameters, verbose logging, and error-handling, to audit local system settings. Add a pre-commit hook to lint the script using PSScriptAnalyzer.
+### Day 2: Enterprise PowerShell & Git Workflows
+* **Objective**: Build secure, modular PowerShell scripts integrated with Git.
+* **Concepts**: Advanced functions, `Try/Catch` handling, script signing, PSScriptAnalyzer, conventional commits, pre-commit hooks.
+* **Practice Lab**: Build a parameterized PowerShell script to audit local configurations. Hook it to Git pre-commits to automatically run lints and formatters.
 
 ### Day 3: Docker & Containerization Deep Dive
-* **Objective**: Package applications securely and efficiently using Docker.
-* **Topics**: Multi-stage builds, rootless containers, volume mount strategies, docker-compose, and minimizing image sizes.
-* **Practice Lab**: Containerize a Python FastAPI application. Use multi-stage builds to exclude build tools from the final image and run as a non-root user.
+* **Objective**: Package application logic securely in isolated containers.
+* **Concepts**: Multi-stage builds, non-root users, volume mounts, docker-compose, image size optimization.
+* **Practice Lab**: Containerize your Day 1 Python FastAPI service. Exclude dev-dependencies from the production image and verify rootless execution.
 
-### Day 4: Self-Hosting with Coolify (DevOps Platform)
-* **Objective**: Implement a self-hosted alternative to Heroku/Railway using Coolify.
-* **Topics**: Self-hosting, Coolify installation, reverse proxies, SSL configuration (Let's Encrypt), and managing environment variables.
-* **Practice Lab**: Set up Coolify on a local virtual machine or cloud instance. Deploy your containerized FastAPI app from Day 3 through Coolify with automatic SSL termination.
+### Day 4: Self-Hosting with Coolify & Reverse Proxies
+* **Objective**: Implement a self-hosted cloud platform using Coolify.
+* **Concepts**: Coolify, Traefik/Nginx, Docker network bridging, Let's Encrypt SSL certificates.
+* **Practice Lab**: Set up Coolify on a VM or VPS. Deploy your FastAPI application via Coolify with automatic SSL termination.
 
-### Day 5: Docker Networking & Reverse Proxies
-* **Objective**: Configure network isolation, domains, and reverse proxies.
-* **Topics**: Traefik/Nginx, Docker networks, SSL wildcard certificates, and local DNS mapping.
-* **Practice Lab**: Deploy Immich (self-hosted photo library) using docker-compose. Configure a reverse proxy to expose it locally over HTTPS with custom routing rules.
+### Day 5: Supabase Core: DB, Auth & Edge Functions
+* **Objective**: Build cloud backend APIs, storage, and database triggers.
+* **Concepts**: PostgreSQL tables, migration scripts, Supabase Edge Functions (Deno/TypeScript), REST APIs.
+* **Practice Lab**: Set up Supabase CLI. Define database schemas for a booking platform, and deploy an Edge Function that transforms and inserts incoming web requests.
 
-### Day 6: Self-Hosting Business Applications (NocoDB & Immich)
-* **Objective**: Self-host database-spreadsheets and object storage systems.
-* **Topics**: NocoDB APIs, Postgres backing, Immich machine learning container tuning.
-* **Practice Lab**: Deploy NocoDB and connect it to a local PostgreSQL instance. Write a Python script to populate NocoDB with test records using its REST API, then verify database structure.
+### Day 6: Supabase Row Level Security (RLS) & JWT Auth
+* **Objective**: Secure databases at the engine level using token claims.
+* **Concepts**: JWT payloads, claims, custom RLS policies (`CREATE POLICY`), schema locking.
+* **Practice Lab**: Configure RLS policies on your booking database to ensure users can only view, edit, or delete items where `user_id == auth.uid()`.
 
-### Day 7: Phase 1 Review & Architecture Diagrams
-* **Objective**: Solidify DevOps, containerization, and scripting.
-* **Topics**: Drawing architectural topologies using Excalidraw.
-* **Practice Lab**: Diagram your self-hosted stack (Coolify, FastAPI, NocoDB, Immich, Traefik). Document container interactions, network boundaries, and volume mapping.
+### Day 7: n8n Workflow Automation Architecture
+* **Objective**: Connect disparate systems using n8n workflows (replacing Zapier/Make/custom scripts).
+* **Concepts**: Webhook triggers, OAuth 2.0 credentials, HTTP request nodes, JSON manipulation.
+* **Practice Lab**: Create an n8n workflow triggered by an external POST webhook. Parse the JSON, query your Supabase database, and push custom Slack alerts.
 
----
+### Day 8: Modern SaaS APIs (Cal.com, Documenso, NocoDB)
+* **Objective**: Integrate industry-standard business APIs.
+* **Concepts**: Cal.com scheduling payloads, Documenso digital signature PKI, NocoDB relational-to-API engine.
+* **Practice Lab**: Set up an integration where a Cal.com booking webhook triggers Documenso API to send a document for digital signing, logging progress inside NocoDB.
 
-## 📌 Phase 2: Terraform & Production AWS Architecture (Days 8–14)
-*Focus: Master Infrastructure as Code (IaC) and production-grade AWS multi-account governance.*
+### Day 9: LangChain Foundation & LLM Tool Calling
+* **Objective**: Interface with Large Language Models and expose tools to them.
+* **Concepts**: ChatModels, prompt templates, structured output, tool binding, system instructions.
+* **Practice Lab**: Create a Python script using LangChain that binds a calculations tool to an LLM, forcing the LLM to call the tool instead of hallucinating math.
 
----
-
-### Day 8: Terraform Fundamentals & State Management
-* **Objective**: Provision resources declaratively using Terraform.
-* **Topics**: Providers, resources, variables, outputs, remote state backend (S3 & DynamoDB lock), and state migration.
-* **Practice Lab**: Create a Terraform configuration that provisions an AWS S3 bucket and a DynamoDB table for backend state management, then migrate your state to it.
-
-### Day 9: Modular Terraform
-* **Objective**: Write reusable, dry Terraform modules.
-* **Topics**: Modules, workspace environments (dev/prod), ternary operators, dynamic blocks.
-* **Practice Lab**: Write a Terraform module to provision a custom VPC with public/private subnets, an internet gateway, and route tables. Deploy both a Dev and Prod instance.
-
-### Day 10: Production AWS Organizations & SCPs
-* **Objective**: Design a multi-account AWS architecture.
-* **Topics**: AWS Organizations, Service Control Policies (SCPs), consolidated billing, and account isolation.
-* **Practice Lab**: Write SCPs using Terraform that prevent member accounts from disabling CloudTrail, deleting guardrails, or launching unauthorized instance types.
-
-### Day 11: AWS IAM Identity Center & Access Control
-* **Objective**: Implement centralized identity and single sign-on (SSO) in AWS.
-* **Topics**: IAM Identity Center, Permission Sets, RBAC, session duration, and multi-factor authentication (MFA) policies.
-* **Practice Lab**: Configure AWS IAM Identity Center using Terraform. Create groups (e.g., SecurityOps, Developers) and attach appropriate permission sets to them.
-
-### Day 12: AWS CloudTrail, GuardDuty & Security Auditing
-* **Objective**: Implement continuous security auditing and threat detection.
-* **Topics**: CloudTrail log delivery, GuardDuty findings, S3 bucket security, and KMS encryption.
-* **Practice Lab**: Enable AWS GuardDuty and organization-wide CloudTrail using Terraform. Configure notifications for high-severity GuardDuty findings using SNS.
-
-### Day 13: Hybrid Active Directory (AD DS) & Entra Connect
-* **Objective**: Bridge on-premises Active Directory with cloud Entra ID.
-* **Topics**: AD DS domain setup, ADFS, Entra Connect synchronization, password hash sync vs pass-through authentication.
-* **Practice Lab**: Conceptualize and diagram a hybrid directory architecture. Write a PowerShell script that checks active user objects in AD DS and compares properties with expected Entra ID schema.
-
-### Day 14: Phase 2 Review: Terraform & AWS Auditing
-* **Objective**: Verify security compliance on AWS.
-* **Topics**: AWS Secure Score, Zero Trust auditing, and Terraform drift analysis.
-* **Practice Lab**: Run a security scanning tool (like tfsec or Checkov) against your Terraform code. Remediate all high-severity findings and document the zero-trust improvements.
+### Day 10: Phase 1 Capstone: Auto-Remediation Identity Script
+* **Objective**: Consolidate Phase 1 skills into a functional automation tool.
+* **Concepts**: Integration of Python, Supabase, n8n, and LLM APIs.
+* **Practice Lab**: Build an automation that listens to simulated identity log additions, writes the telemetry to Supabase, triggers an n8n flow, and uses LangChain to generate an admin remediation script.
 
 ---
 
-## 📌 Phase 3: Production Kubernetes, Observability & Identity Governance (Days 15–21)
-*Focus: Master EKS orchestration, enterprise security tooling, and advanced identity governance.*
+## 📌 Phase 2: Leveling Up & Essential Projects (Days 11–30)
+*Goal: Expand into Infrastructure as Code, multi-account Cloud security, and stateful, persistent AI graph agents.*
 
 ---
 
-### Day 15: Kubernetes Core Concepts & Manifests
-* **Objective**: Master pods, deployments, services, and config maps.
-* **Topics**: Pod lifecycle, ReplicaSets, ClusterIP vs NodePort vs LoadBalancer services, ingress rules.
-* **Practice Lab**: Write Kubernetes manifests to deploy a multi-replica Python backend. Set up resource limits, liveness/readiness probes, and exposed services.
+### Day 11: Terraform Infrastructure Provisioning
+* **Objective**: Deploy resources declaratively using Terraform.
+* **Concepts**: Providers, resources, variables, output bindings, remote state backend (S3/DynamoDB locks).
+* **Practice Lab**: Write a Terraform script to create an AWS S3 bucket and DynamoDB table, then migrate your state backend to it.
 
-### Day 16: Amazon EKS (Elastic Kubernetes Service)
-* **Objective**: Provision a managed production Kubernetes cluster on AWS.
-* **Topics**: EKS control plane, managed node groups, IAM Roles for Service Accounts (IRSA), and VPC CNI.
-* **Practice Lab**: Write Terraform code to spin up a production-ready EKS cluster with 3 nodes, isolated inside private subnets.
+### Day 12: Modular Terraform Environments
+* **Objective**: Maintain dry, environment-isolated configurations.
+* **Concepts**: Terraform modules, workspace isolation, ternary logic, dynamic blocks.
+* **Practice Lab**: Create a custom VPC module. Deploy separate, network-isolated "Development" and "Production" workspaces.
 
-### Day 17: Production Kubernetes Security (1Password, CrowdStrike & Cloudflare)
-* **Objective**: Secure workloads, secrets, and entry points.
-* **Topics**: 1Password Operator (external secrets), CrowdStrike Falcon agent injection, and Cloudflare Tunnels for secure ingress.
-* **Practice Lab**: Install the ExternalSecrets Operator on your EKS cluster. Sync a mock database password from a simulated secret vault without committing it to Git.
+### Day 13: AWS Organizations & Service Control Policies (SCPs)
+* **Objective**: Build secure enterprise multi-account structures.
+* **Concepts**: AWS Organizations, consolidated billing, Service Control Policies, account boundaries.
+* **Practice Lab**: Write SCPs in Terraform that block member accounts from deleting CloudTrail trails or altering core VPC layouts.
 
-### Day 18: Kubernetes Monitoring & Observability (Datadog & GitLab CI)
-* **Objective**: Configure metrics tracking and automated deployments.
-* **Topics**: Datadog Agent DaemonSet, GitLab CI runner, Helm charts, and log forwarding.
-* **Practice Lab**: Deploy Datadog agents to EKS using Helm. Create a dashboard displaying cluster CPU, memory pressure, and API server latency.
+### Day 14: AWS IAM Identity Center & Access Policies
+* **Objective**: Configure centralized SSO and fine-grained RBAC.
+* **Concepts**: IAM Identity Center, permission sets, group mapping, session durations.
+* **Practice Lab**: Provision AWS IAM Identity Center resources via Terraform. Map local developer and security groups to matching permission sets.
 
-### Day 19: Identity Governance (PIM & Conditional Access)
-* **Objective**: Implement Just-In-Time (JIT) access and Adaptive MFA.
-* **Topics**: Microsoft Entra Privileged Identity Management (PIM), Conditional Access policies, secure scores.
-* **Practice Lab**: Configure Entra ID Conditional Access policies via Microsoft Graph API (using Python) to enforce MFA if access is requested from outside the corporate IP range.
+### Day 15: AWS Threat Detection: CloudTrail & GuardDuty
+* **Objective**: Establish organization-wide threat detection telemetry.
+* **Concepts**: CloudTrail event delivery, GuardDuty analytics, EventBridge rules.
+* **Practice Lab**: Deploy GuardDuty and CloudTrail across your Terraform environment. Configure SNS alerts for severe security threats.
 
-### Day 20: Security Compliance (SOC 2, ISO 27001, NIST & Zero Trust)
-* **Objective**: Map infrastructure configuration to regulatory compliance matrices.
-* **Topics**: Zero Trust network access (ZTNA), SOC 2 Trust Services Criteria, NIST SP 800-53 controls.
-* **Practice Lab**: Perform a mock audit of your AWS and Kubernetes infrastructure. Compile a markdown compliance registry mapping controls (e.g., encryption at rest) to specific configuration parameters.
+### Day 16: Hybrid Active Directory & Entra Connect
+* **Objective**: Synchronize local identity systems with cloud Entra ID.
+* **Concepts**: AD DS, ADFS federations, Entra Connect engine, password hash synchronization.
+* **Practice Lab**: Create a PowerShell script to audit AD DS user attributes, verifying their schema matches Entra ID expectations.
 
-### Day 21: Phase 3 Review: SIEM Integration (Sentinel/Splunk)
-* **Objective**: Monitor cloud infrastructure security events.
-* **Topics**: Splunk/Sentinel logs, ingestion pipelines, query syntax, incident response playbooks.
-* **Practice Lab**: Write Kusto Query Language (KQL) queries for Microsoft Sentinel to detect unauthorized administrative role additions in Entra ID.
+### Day 17: Privileged Identity Management (PIM) & CA Policies
+* **Objective**: Enforce Just-In-Time (JIT) access and Adaptive MFA.
+* **Concepts**: Entra ID PIM, Conditional Access (CA) API, Secure Score metrics.
+* **Practice Lab**: Code a Python script using Microsoft Graph API to dynamically request a temporary elevation of admin privileges.
 
----
-
-## 📌 Phase 4: Modern SaaS Stack & API Orchestration (Days 22–30)
-*Focus: Master Supabase, n8n, Cal.com, Documenso, and API-first architectures.*
-
----
-
-### Day 22: Supabase Architecture & Database Essentials
-* **Objective**: Build backend storage, realtime DBs, and API layers using Supabase.
-* **Topics**: PostgreSQL schemas, migrations, storage buckets, and realtime subscriptions.
-* **Practice Lab**: Set up a local Supabase CLI environment. Define database tables for a booking application, including relationship keys.
-
-### Day 23: Row Level Security (RLS) & JWT Authentication
-* **Objective**: Lock down databases directly at the engine layer using JWT-based RLS.
-* **Topics**: JWT tokens, claims, policy creation (`CREATE POLICY`), and schema segregation.
-* **Practice Lab**: Write RLS policies for your booking database to ensure users can only view, edit, or delete bookings associated with their own `auth.uid()`.
-
-### Day 24: Supabase Edge Functions
-* **Objective**: Implement serverless Javascript/Typescript APIs on the edge.
-* **Topics**: Deno runtime, environment variables, fetching third-party APIs, and triggering edge functions.
-* **Practice Lab**: Write a Deno Edge Function that receives an ID, queries a table, performs a payload transformation, and returns signed JSON data.
-
-### Day 25: PostHog Product Analytics & Event Tracking
-* **Objective**: Implement user tracking, behavioral analytics, and session replays.
-* **Topics**: PostHog JS SDK, custom events, ingestion pipelines, and user identification.
-* **Practice Lab**: Integrate PostHog into a frontend application. Write custom event trackers for a checkout page and set up a session recording capture rule.
-
-### Day 26: PostHog Feature Flags & Experimentation
-* **Objective**: Implement canary releases and A/B testing frameworks.
-* **Topics**: Feature flags evaluation, multivariate tests, and cohort definitions.
-* **Practice Lab**: Write Python code using the PostHog SDK to dynamically toggle application behaviors depending on whether a user has a specific feature flag enabled.
-
-### Day 27: n8n Basics & API Orchestration
-* **Objective**: Build reliable API-driven workflows.
-* **Topics**: n8n nodes, JSON expressions, webhooks, error-handling routes, and credentials.
-* **Practice Lab**: Create an n8n workflow triggered by an incoming HTTP POST webhook. The workflow should parse the JSON payload, query a Postgres database, and send a Slack alert if a threshold is exceeded.
-
-### Day 28: Cal.com API & OAuth
-* **Objective**: Integrate advanced scheduling functionality.
-* **Topics**: Cal.com REST API, OAuth 2.0 flow, webhooks, and calendar sync.
-* **Practice Lab**: Set up an OAuth 2.0 connection to Cal.com. Build an integration that listens to a `booking.created` webhook and records the event in your Supabase backend.
-
-### Day 29: Documenso & Digital Signatures (PKI)
-* **Objective**: Implement legally binding digital signing workflows.
-* **Topics**: Digital signatures, PKI, PDF generation, and document audit trails.
-* **Practice Lab**: Use Documenso's API to upload a PDF, place a signing field, send an invite to a test user, and verify the cryptographic signature hash after completion.
-
-### Day 30: Phase 4 Review: Custom n8n Nodes
-* **Objective**: Extend n8n with custom integrations.
-* **Topics**: n8n custom node layout, credential handling, and deployment.
-* **Practice Lab**: Write a custom n8n community node or a composite HTTP Request node to interact with the Drata compliance API, retrieving daily security checklist status.
-
----
-
-## 📌 Phase 5: Stateful Agentic AI & Memory Architectures (Days 31–45)
-*Focus: Master LangGraph stateful orchestrations, advanced memory networks, and semantic retrieval.*
-
----
-
-### Day 31: LangChain Foundation & Tool Invocation
-* **Objective**: Bind LLMs to external APIs using tool calling.
-* **Topics**: ChatModels, prompt templates, structured output, and tool-binding bindings.
-* **Practice Lab**: Write a Python script using LangChain that binds a mathematical calculator tool to an LLM, ensuring it calls the tool when asked math questions.
-
-### Day 32: LangGraph Core: Graphs & State Management
+### Day 18: LangGraph Core: Graphs & States
 * **Objective**: Build stateful agent applications using graphs.
-* **Topics**: State, nodes, edges, conditional edges, and compilers.
-* **Practice Lab**: Create a LangGraph application representing a support agent. Define a state dictionary, create a routing logic node, and compile the graph.
+* **Concepts**: Graph State, nodes, edges, conditional routing, compilation.
+* **Practice Lab**: Construct a customer service agent in LangGraph. Define state schemas and write routing rules to steer queries based on user intent.
 
-### Day 33: Persistence & Checkpointers in LangGraph
-* **Objective**: Enable conversational history, checkpoint saving, and time travel.
-* **Topics**: Memory checkpointers, SQLite saver, thread configuration, and state restoring.
-* **Practice Lab**: Implement a checkpointer in your support agent graph. Validate that you can interrupt execution, resume from a specific thread ID, and inspect past states.
+### Day 19: LangGraph State Persistence & Time Travel
+* **Objective**: Maintain conversational state across long durations and allow status recovery.
+* **Concepts**: Checkpointers, SQLite savers, thread IDs, state injection.
+* **Practice Lab**: Add SQLite state persistence to your LangGraph agent. Demonstrate pausing, resuming, and rolling back conversational states to previous turns.
 
-### Day 34: Human-in-the-Loop (HITL) in LangGraph
-* **Objective**: Implement approval gates for high-risk actions.
-* **Topics**: Breakpoints, feedback loops, manual state edits, and node suspension.
-* **Practice Lab**: Update your graph to pause execution and ask for human approval before calling a tool that performs a mock database write or external API update.
+### Day 20: Human-in-the-Loop (HITL) Gateways
+* **Objective**: Interrupt agent graph flows to wait for human verification.
+* **Concepts**: Breakpoints, input interception, manual state updates, resuming nodes.
+* **Practice Lab**: Design a graph node that halts execution and requests manual admin permission before invoking a data modification tool.
 
-### Day 35: Chat Threading & Multi-Actor Routing
-* **Objective**: Manage concurrent multi-user channels.
-* **Topics**: Thread partitioning, parallel execution paths, and agent delegation.
-* **Practice Lab**: Build a supervisor agent graph that routes tasks to specialist agents (e.g., Writer, Coder) based on user query analysis.
+### Day 21: Multi-Agent Architectures & Supervision
+* **Objective**: Orchestrate multiple specialized agents under a central manager.
+* **Concepts**: Supervisor agents, specialized actor routing, state passing, context scoping.
+* **Practice Lab**: Build a system where a supervisor agent receives a complex query and delegates sub-tasks to a "Coder" agent and a "Writer" agent.
 
-### Day 36: Agentic Memory: Short-Term vs Long-Term
-* **Objective**: Design multi-layered agent memory profiles.
-* **Topics**: Conversational Buffer Memory, Sliding Window, and Vector Store Memory.
-* **Practice Lab**: Write an agent that maintains a short-term conversational window but fetches user preferences from a PostgreSQL database (long-term store).
+### Day 22: Short-Term vs. Long-Term Agentic Memory
+* **Objective**: Structure memory models for context persistence and fast recalls.
+* **Concepts**: Conversational Buffer, sliding windows, persistent Postgres memory layers.
+* **Practice Lab**: Build an agent that maintains active context in memory while asynchronously reading long-term preferences from Supabase.
 
-### Day 37: Advanced Memory: Abstractive & Progressive Summary Memory
-* **Objective**: Maintain state over long conversations without exceeding context limits.
-* **Topics**: Summary Buffer, Token budgeting, and abstractive summarizing nodes.
-* **Practice Lab**: Implement a background summarizer node in LangGraph. As the conversational token count approaches a threshold, condense history into an abstractive summary and update the state.
+### Day 23: Advanced Memory: Abstractive Summary Buffers
+* **Objective**: Manage token consumption in long-running chats.
+* **Concepts**: Token budgets, summary buffer, LLM-driven chat condensation.
+* **Practice Lab**: Program a custom summarization edge in LangGraph that condenses chat logs into abstractive summaries when token length exceeds a threshold.
 
-### Day 38: Memory Routing & Entity Memory
-* **Objective**: Extract and structure metadata about real-world entities mentioned in chat.
-* **Topics**: Entity extraction, JSON graph memory, and dynamic memory retrieval routing.
-* **Practice Lab**: Build a memory system that extracts key facts about a user's company (e.g., team size, stack) during a conversation, saving it structured to Supabase.
+### Day 24: Entity & Semantic Memory Routing
+* **Objective**: Track structured metadata about real-world entities.
+* **Concepts**: Entity extraction, metadata trees, memory routing vectors.
+* **Practice Lab**: Write an agent that extracts user information (e.g., cloud provider, tool stacks) and queries specific memory databases based on extracted tags.
 
-### Day 39: Episodic & Semantic Memory Architectures
-* **Objective**: Emulate human memory architectures in software.
-* **Topics**: Episodic memories (raw interaction logs), Semantic memory (factual rules), and Procedural memory (tool instructions).
-* **Practice Lab**: Build a memory store where the agent stores successful trajectories (episodic) and uses them as few-shot examples for future tasks.
+### Day 25: Vector DBs: ChromaDB & Metadata Filtration
+* **Objective**: Build efficient vector retrieval indexes.
+* **Concepts**: Embeddings, cosine similarity, ChromaDB collections, metadata query filters.
+* **Practice Lab**: Set up a local ChromaDB instance, ingest a dataset, and query entries using exact metadata filters paired with semantic vector search.
 
-### Day 40: Mathematical Memory Decay (Ebbinghaus Forgetting Curves)
-* **Objective**: Implement memory relevance decay scoring over time.
-* **Topics**: Half-life decay formulas, time-delta scoring, and vector retrieval sorting.
-* **Practice Lab**: Write a custom retrieval algorithm that scores memories based on: `Score = Relevance * e^(-lambda * t)`. Filter out old, irrelevant memories.
+### Day 26: Hybrid Search: BM25 & Reciprocal Rank Fusion (RRF)
+* **Objective**: Merge keyword indices and vector indices for high accuracy.
+* **Concepts**: BM25 keyword matching, dense vector indexes, RRF scoring logic.
+* **Practice Lab**: Write a Python search module combining BM25 and ChromaDB outputs using the RRF algorithm to produce a re-ranked list of matching documents.
 
-### Day 41: Vector Databases: Dense Vector Search vs BM25 Hybrid Search
-* **Objective**: Combine keyword matching with semantic matching.
-* **Topics**: ChromaDB, BM25 algorithm, dense embeddings, and cross-encoders.
-* **Practice Lab**: Set up a ChromaDB vector store. Index a corpus of text. Write a search pipeline that runs both a BM25 keyword search and a vector similarity search.
+### Day 27: Model Context Protocol (MCP) Server Construction
+* **Objective**: Expose localized utilities and resources to AI agents via the MCP protocol.
+* **Concepts**: MCP architecture, JSON-RPC, schema definitions, custom resource mappings.
+* **Practice Lab**: Write a custom MCP server in Python that exposes secure commands to read system diagnostics and passes them to an LLM.
 
-### Day 42: Reciprocal Rank Fusion (RRF) & Re-ranking
-* **Objective**: Merge search results from multiple indexes cleanly.
-* **Topics**: RRF score calculation, Cohere/HuggingFace re-rankers, and latency optimizations.
-* **Practice Lab**: Implement the RRF algorithm in Python to combine your BM25 and dense search outputs, producing a final unified ranked document set.
+### Day 28: Multi-Agent Frameworks: CrewAI & AutoGen
+* **Objective**: Prototype workflows using out-of-the-box orchestrators.
+* **Concepts**: Crew roles, agent tasks, AutoGen conversation patterns.
+* **Practice Lab**: Design a multi-agent workflow in CrewAI to research security logs and compare its state management with LangGraph.
 
-### Day 43: Model Context Protocol (MCP) Server Integration
-* **Objective**: Connect agents to standardized, external MCP tools and resources.
-* **Topics**: MCP spec, server registration, client transport, and custom resource schemas.
-* **Practice Lab**: Build a custom MCP server in Python that exposes your local system filesystem or database to an AI agent, implementing secure read/write controls.
-
-### Day 44: CrewAI & AutoGen (Multi-Agent Alternatives)
-* **Objective**: Compare alternative frameworks for multi-agent workflows.
-* **Topics**: Roles, goals, backstories, agent communication, and execution loops.
-* **Practice Lab**: Implement a marketing agent crew using CrewAI. Compare its ease of state management with your LangGraph implementations.
-
-### Day 45: Phase 5 Review: Full-Graph Flowcharting
-* **Objective**: Design complex state machines visually.
-* **Topics**: State machine diagramming, cycle handling, and deadlock prevention.
-* **Practice Lab**: Map out your agent's state transitions, tool interfaces, and memory architecture in Excalidraw, aligning with the BPGpt project structure.
+### Days 29–30: Phase 2 Project: Stateful AI Security Concierge
+* **Objective**: Build a persistent, stateful agent that assists administrators.
+* **Concepts**: Integrating LangGraph, SQLite checkpointers, Supabase DB, custom MCP server.
+* **Practice Lab**: Build an agent that queries user directories via MCP, uses RLS policies on Supabase to log access, and triggers an approval breakpoint (HITL) before modifying tenant configurations.
 
 ---
 
-## 📌 Phase 6: AI Guardrails, Security, Observability & LLM Evaluation (Days 46–54)
-*Focus: Secure agents against malicious prompts, implement telemetry, and run automated evaluations.*
+## 📌 Phase 3: Deepening Expertise & Complex Projects (Days 31–60)
+*Goal: Master production-level container orchestration, strict compliance auditing, AI security guardrails, performance profiling, and build a massive capstone system.*
 
 ---
 
-### Day 46: NVIDIA NeMo Guardrails
-* **Objective**: Implement input/output protection for LLM queries.
-* **Topics**: NeMo configuration, Colang expression language, and routing rules.
-* **Practice Lab**: Write a NeMo Guardrails policy that intercepts user input and blocks any query containing prompt injection patterns.
+### Day 31: Kubernetes Core Manifests & Services
+* **Objective**: Define containerized topologies on Kubernetes.
+* **Concepts**: Pods, Deployments, services (ClusterIP, NodePort, LoadBalancer), ingress.
+* **Practice Lab**: Write YAML manifests deploying a scalable Python microservice with liveness probes and path-based ingress routing.
 
-### Day 47: Colang Deep Dive & Action Mappings
-* **Objective**: Design custom interaction logic using Colang.
-* **Topics**: Colang syntax, custom Python actions, and system flows.
-* **Practice Lab**: Build a Colang script that enforces the agent to verify user access levels via a custom Python script before answering billing queries.
+### Day 32: Production Amazon EKS Architecture
+* **Objective**: Spin up enterprise-ready Kubernetes infrastructure.
+* **Concepts**: VPC CNI, Managed Node Groups, IAM Roles for Service Accounts (IRSA).
+* **Practice Lab**: Write Terraform code to deploy an EKS cluster running within isolated subnets, mapped to AWS IAM permissions.
 
-### Day 48: AWS Bedrock Guardrails & Llama Firewall
-* **Objective**: Leverage cloud-managed security firewalls.
-* **Topics**: Bedrock Guardrails configuration, Meta Llama Firewall parameters, and PII masking.
-* **Practice Lab**: Set up a Bedrock Guardrails policy (or configure a local Meta Llama Guard pipeline) to mask PII data (emails, credit cards) before it reaches the model.
+### Day 33: Kubernetes Workload Security: 1Password & CrowdStrike
+* **Objective**: Protect cluster namespaces and secret injection.
+* **Concepts**: ExternalSecrets Operator, 1Password credentials synchronization, CrowdStrike Falcon agent runtime protection.
+* **Practice Lab**: Deploy the ExternalSecrets operator on EKS, syncing database keys from a secure external system.
 
-### Day 49: LLM Evaluation: Ragas Framework
-* **Objective**: Run objective, automated benchmarks on RAG pipelines.
-* **Topics**: Ragas metrics, test set generator, and golden datasets.
-* **Practice Lab**: Set up Ragas. Evaluate a test set of 20 Q&A pairs using your hybrid search pipeline, calculating metrics for context retrieval.
+### Day 34: Perimeter Protection: Cloudflare Tunnels & Ingress
+* **Objective**: Secure entry points to internal web tools.
+* **Concepts**: Cloudflare Tunnels, zero-trust network access, ingress routing.
+* **Practice Lab**: Configure a Cloudflare Tunnel to expose your local Kubernetes service without opening public firewall ports.
 
-### Day 50: Evaluation Metrics Deep Dive
-* **Objective**: Master the math and prompt logic behind LLM evaluation metrics.
-* **Topics**: Faithfulness (groundedness), Answer Relevancy, Context Precision, and Context Recall.
-* **Practice Lab**: Write custom LLM-as-a-Judge prompts in Python to evaluate Faithfulness, comparing the output against the Ragas scoring baseline.
+### Day 35: Observability: Datadog & GitLab CI Deployments
+* **Objective**: Implement metrics tracking dashboards and automatic pipeline deployments.
+* **Concepts**: Datadog Agent DaemonSets, Helm configurations, GitLab runners.
+* **Practice Lab**: Deploy Datadog collectors to your EKS cluster using Helm, and configure alerts for pod memory saturation.
 
-### Day 51: Agent Telemetry & Tracing (Langfuse & LangSmith)
-* **Objective**: Track cost, latency, and trajectory of nested agent steps.
-* **Topics**: Langfuse tracing SDK, LangSmith decorators, trace IDs, and cost calculation.
-* **Practice Lab**: Integrate Langfuse into your multi-actor LangGraph application. Run a series of queries and inspect the step-by-step latency waterfall.
+### Day 36: SIEM Integration: Sentinel & Splunk Ingestion
+* **Objective**: Centralize identity and infrastructure security events.
+* **Concepts**: Sentinel KQL query parsing, Splunk ingestion pipelines.
+* **Practice Lab**: Write a KQL query inside Microsoft Sentinel to detect consecutive administrative logins from disparate geological IPs within 5 minutes.
 
-### Day 52: Observability with Pydantic Logfire
-* **Objective**: Implement clean, structured logging optimized for Python.
-* **Topics**: Logfire SDK, database spans, HTTP instrumentation, and custom attributes.
-* **Practice Lab**: Instrument your FastAPI server with Pydantic Logfire. Track database query times and API request latency dashboards.
+### Day 37: Compliance Frameworks: SOC 2, ISO 27001, NIST Audits
+* **Objective**: Map IT setups to regulatory compliance criteria.
+* **Concepts**: Access control policy matrices, encryption auditing, NIST SP 800-53.
+* **Practice Lab**: Perform a mock audit on your Terraform repositories and generate a compliance matrix detailing missing SOC 2 controls.
 
-### Day 53: Load Testing Agent Endpoints (Locust)
-* **Objective**: Measure concurrency limits and API scaling thresholds.
-* **Topics**: Locust scripts, concurrent request simulations, and system bottlenecks.
-* **Practice Lab**: Write a Locust load testing script targeting your FastAPI endpoint. Run the test with 50 concurrent users and observe latency degradation.
+### Day 38: Zero Trust Network Architecture & Incident Response
+* **Objective**: Design networks assuming absolute perimeter compromise.
+* **Concepts**: Micro-segmentation, continuous verification, Incident Response playbooks.
+* **Practice Lab**: Create a detailed runbook for isolating compromised Kubernetes namespaces and terminating linked active sessions.
 
-### Day 54: Phase 6 Review: Security & Compliance Runbook
-* **Objective**: Document security response strategies.
-* **Topics**: Incident response, red-teaming LLMs, and compliance alignment.
-* **Practice Lab**: Create an incident response runbook detailing how to mitigate a zero-day prompt injection vulnerability discovered in production.
+### Day 39: NVIDIA NeMo Guardrails: Jailbreak Protection
+* **Objective**: Prevent prompt injection and adversarial attacks.
+* **Concepts**: NeMo configs, Colang expression definitions, input filtering.
+* **Practice Lab**: Implement a NeMo Guardrails configuration that blocks incoming user prompts containing system-instruction override commands.
 
----
+### Day 40: Custom Colang Flows & Output Shielding
+* **Objective**: Direct LLM conversational behaviors.
+* **Concepts**: Colang files, Python action integration, output validation.
+* **Practice Lab**: Code a Colang flow that intercepts agent replies and scans them for unauthorized data leakage (e.g. system paths) before responding.
 
-## 📌 Phase 7: Loop Engineering & Capstone Project (Days 55–60)
-*Focus: Build and deploy the "BPGpt" Enterprise Identity & Security Agent.*
+### Day 41: AWS Bedrock Guardrails & Llama Firewall
+* **Objective**: Mask sensitive parameters and filter cloud-native AI payloads.
+* **Concepts**: PII masking, Llama Firewall weights, AWS Bedrock policy configurations.
+* **Practice Lab**: Set up Bedrock Guardrails to automatically detect and redact names, emails, and phone numbers from LLM inputs.
 
----
+### Day 42: LLM Evaluation: Ragas Framework & Golden Datasets
+* **Objective**: Quantify retrieval-augmented generation accuracy.
+* **Concepts**: Ragas, Golden datasets, LLM-as-a-Judge architecture.
+* **Practice Lab**: Create a golden evaluation dataset with 20 Q&A pairs. Execute Ragas scripts to benchmark context extraction accuracy.
 
-### Day 55: Loop Engineering: Build-Measure-Learn Cycles
-* **Objective**: Build self-correcting agent workflows.
-* **Topics**: Loop engineering, metric trackers, stop conditions, and iterative code loops.
-* **Practice Lab**: Build an agent that runs in an iterative loop: writes code, runs a compiler tool, parses the error output, and refactors itself until the compilation succeeds (stop condition).
+### Day 43: Evaluation Metrics: Faithfulness & Context Recall
+* **Objective**: Analyze mathematical evaluations of LLM behavior.
+* **Concepts**: Groundedness formulas, answer relevancy, context precision.
+* **Practice Lab**: Write a Python evaluator that calls GPT-4 to calculate a mathematical precision score of fetched references compared to the generated response.
 
-### Day 56: BPGpt Architecture & Design
-* **Objective**: Architect the capstone Enterprise Identity Audit Agent.
-* **Topics**: Architecture diagrams, database schemas, and microservices design.
-* **Practice Lab**: Write the architectural blueprint for BPGpt. It must use:
-  * **Ingestion**: n8n to sync Entra ID logs.
-  * **Database**: Supabase (Postgres, RLS) to store configuration and security alerts.
-  * **Agent**: LangGraph state machine mapping security remediation steps.
-  * **Guardrails**: NVIDIA NeMo Guardrails shielding execution.
+### Day 44: Custom Python Evaluation Engines
+* **Objective**: Build tailor-made testing wrappers for domain-specific agent loops.
+* **Concepts**: Custom scoring, evaluation loops, logging test traces.
+* **Practice Lab**: Code a Python testing script that checks agent outputs against a JSON schema, scoring correctness based on expected entity values.
 
-### Day 57: BPGpt Development - Ingestion & DB Layer
-* **Objective**: Build the backend foundation for BPGpt.
-* **Topics**: Supabase database setup, Edge functions, and n8n webhooks.
-* **Practice Lab**: Code the schema migrations in Supabase, configure Row Level Security, and set up an n8n workflow that triggers on Entra ID role assignment alerts.
+### Day 45: Agent Tracing: Langfuse & LangSmith
+* **Objective**: Profile multi-actor execution costs and nested delays.
+* **Concepts**: Langfuse SDK integration, span definitions, token accounting, tracing waterfalls.
+* **Practice Lab**: Decorate your LangGraph agents to stream telemetry to Langfuse, identifying which sub-nodes cause the most latency.
 
-### Day 58: BPGpt Development - Agent Engine & Guardrails
-* **Objective**: Code the stateful routing logic and safety mechanisms.
-* **Topics**: LangGraph orchestration, tool definitions, and NeMo guardrails.
-* **Practice Lab**: Code the LangGraph state machine. Build tools that trigger conditional access remediation commands (via Microsoft Graph) and secure the agent with prompt injection guardrails.
+### Day 46: Pydantic Logfire & FastAPI Metrics
+* **Objective**: Instrument applications with telemetry.
+* **Concepts**: Logfire spans, FastAPI integration, DB transaction tracking.
+* **Practice Lab**: Instrument your FastAPI application using Pydantic Logfire, creating custom spans to track database query times.
 
-### Day 59: BPGpt Deployment & CI/CD
-* **Objective**: Deploy BPGpt to production infrastructure.
-* **Topics**: GitLab/GitHub CI/CD pipelines, Docker container registry, and Amazon EKS node deployment.
-* **Practice Lab**: Write a CI/CD pipeline that builds the BPGpt image, runs automated Ragas tests, and deploys it to your EKS cluster with Datadog monitoring enabled.
+### Day 47: Load Testing: Locust Concurrency Benchmarks
+* **Objective**: Benchmark scaling limits of backend endpoints.
+* **Concepts**: Locust configurations, concurrent user ramp-up, throughput.
+* **Practice Lab**: Run a Locust script that fires 100 concurrent requests per second at your FastAPI endpoint, mapping response-time histograms.
 
-### Day 60: BPGpt Verification, Load Test & Walkthrough
-* **Objective**: Perform full verification and document results.
-* **Topics**: Walkthrough document, demo recording, and final security audit.
-* **Practice Lab**: Run a production load test on BPGpt, verify that all guardrails trigger on hostile prompts, verify that RLS holds on databases, and write the final walkthrough report.
+### Day 48: Advanced Memory: Ebbinghaus Forgetting Curves
+* **Objective**: Program memory retention policies.
+* **Concepts**: Half-life decay scoring, timestamp weighting, vector search relevance formulas.
+* **Practice Lab**: Write a Python memory retrieval method that calculates decay: `Relevance = BaseScore * 2^(-t / T_half)`. Filter expired parameters.
+
+### Day 49: Loop Engineering: Build-Measure-Learn Iteration
+* **Objective**: Code self-improving agents.
+* **Concepts**: Iterative compilation loops, objective metrics, stop conditions.
+* **Practice Lab**: Write a LangGraph agent that writes a unit test, runs a CLI tool to execute it, parses error stack traces, and edits the code until tests pass.
+
+### Day 50: Continuous Loop Optimization
+* **Objective**: Build agents that refine prompt templates over multiple execution trials.
+* **Concepts**: Prompt optimization, automated feedback loops.
+* **Practice Lab**: Write an agent that critiques its own output over 5 iterations and yields the highest-scoring response according to an evaluation node.
+
+### Days 51–60: Phase 3 Capstone: BPGpt - Enterprise Identity & Security Agent
+* **Objective**: Consolidate every skill in this program into an enterprise-grade agent.
+* **Concepts**: Full-stack integration of Kubernetes, AWS, Terraform, Supabase, n8n, LangGraph, NeMo Guardrails, Ragas, and Datadog.
+* **Practice Lab Breakdown**:
+  * **Days 51–52**: Design EKS topologies and write database schemas in Supabase with strict RLS configurations.
+  * **Days 53–54**: Write n8n workflow engines to extract tenant authentication events and write them to Supabase.
+  * **Days 55–56**: Code the stateful LangGraph agent logic with SQLite persistent checkpointers and custom MCP tool definitions.
+  * **Days 57–58**: Layer NeMo Guardrails and AWS Bedrock firewalls over inputs/outputs and write a Human-in-the-Loop breakpoint approval.
+  * **Day 59**: Write GitHub Actions pipelines that build Docker images, run automated Ragas unit tests, and deploy services to EKS.
+  * **Day 60**: Run Locust load tests, simulate prompt injections to verify guardrails, review telemetry dashboards on Logfire, and write the final walkthrough.

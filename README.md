@@ -2,7 +2,10 @@
 
 Welcome to your personalized, high-intensity study plan designed to transition your background in Enterprise IT and Security into a world-class **Agentic AI & DevOps Engineering** role. 
 
-This curriculum is structured for **60 days**, requiring a minimum commitment of **5 hours per day (300 hours total)**. It bridges the gap between deep infrastructure/identity management (Microsoft 365, Entra ID, Kubernetes, AWS, Terraform) and bleeding-edge Agentic AI development (LangGraph, n8n, AI Guardrails, LLM Evals, Memory Architectures).
+This curriculum is structured for **60 days**, requiring a minimum commitment of **5 hours per day (300 hours total)**. It is structured into three progressive stages to accelerate your career transition:
+1. **Days 1–10: Job-Ready Foundation** (Essential coding, databases, automation APIs, and basic AI tooling).
+2. **Days 11–30: Leveling Up & Essential Projects** (Infrastructure as Code, Cloud security governance, and stateful AI graph agents).
+3. **Days 31–60: Deepening Expertise & Complex Projects** (Production Kubernetes, AI Guardrails, telemetry, automated Evals, and an enterprise capstone project).
 
 ---
 
@@ -14,16 +17,13 @@ This curriculum is structured for **60 days**, requiring a minimum commitment of
 
 ---
 
-## 📅 High-Level Roadmap
+## 📅 Chronological Phases
 
 | Phase | Days | Focus Area | Core Technologies |
 | :--- | :--- | :--- | :--- |
-| **Phase 1** | Days 1–12 | Production Scripting, DevOps & Self-Hosting | Python, Docker, Coolify, Reverse Proxies |
-| **Phase 2** | Days 13–24 | Enterprise Infrastructure, Identity & AWS | AWS Organizations, Terraform, Entra ID, Hybrid AD |
-| **Phase 3** | Days 25–36 | Modern SaaS Stack & API Orchestration | Supabase, n8n, Cal.com, Documenso, Microsoft Graph |
-| **Phase 4** | Days 37–48 | Stateful Agentic AI & Memory Architectures | LangGraph, LangChain, Vector DBs, Hybrid Search, RRF |
-| **Phase 5** | Days 49–54 | AI Guardrails, Security & LLM Evaluation | NeMo Guardrails, Ragas, Langfuse, Pydantic Logfire |
-| **Phase 6** | Days 55–60 | Capstone Projects & Production Deployment | Kubernetes (EKS), CI/CD, Loop Engineering, BPGpt |
+| **Phase 1** | Days 1–10 | **Job-Ready Foundation** | Python, PowerShell, Docker, Coolify, Supabase, n8n, LangChain |
+| **Phase 2** | Days 11–30 | **Leveling Up & Essential Projects** | Terraform, AWS, Entra ID, LangGraph, Memory Architectures, Vector DBs |
+| **Phase 3** | Days 31–60 | **Deepening Expertise & Complex Projects** | EKS, SIEM, Security Compliance, NeMo Guardrails, Ragas, Langfuse, Logfire |
 
 ---
 
