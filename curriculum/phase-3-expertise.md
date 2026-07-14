@@ -72,7 +72,7 @@
 ## Day 36: Compliance Frameworks (SOC 2 / ISO 27001)
 
 **🎯 Objective:** Map technical controls to regulatory requirements.
-**📖 Learn:** Review your existing `C:\Dev\Work\Compliance` documentation.
+**📖 Learn:** Review your existing SOC 2 / compliance documentation from past work, plus the [AICPA Trust Services Criteria](https://www.aicpa-cima.com/resources/download/trust-services-criteria).
 **🛠️ Practice:** Write a Markdown document mapping the technical controls you've learned (SSO, Terraform, GuardDuty, RLS) to specific SOC 2 criteria (e.g., CC6.1 Logical Access).
 **📂 Where:** Local Markdown.
 **✅ Ship:** Commit the control mapping matrix to `labs/day-36-compliance/`.

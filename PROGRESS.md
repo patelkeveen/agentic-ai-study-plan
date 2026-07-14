@@ -260,24 +260,20 @@ _Template entries for Days 31–60 — fill in as you progress._
 
 | Day | Topic | Date | Hours | Shipped | Posted |
 |:----|:------|:-----|:------|:--------|:-------|
-| 31 | Kubernetes Core | | /5 | | |
-| 32 | EKS Architecture | | /5 | | |
-| 33 | K8s Security | | /5 | | |
-| 34 | Cloudflare Tunnels | | /5 | | |
-| 35 | Observability | | /5 | | |
-| 36 | SIEM Integration | | /5 | | |
-| 37 | Compliance Frameworks | | /5 | | |
-| 38 | Zero Trust & IR | | /5 | | |
-| 39 | NeMo Guardrails | | /5 | | |
-| 40 | Colang Flows | | /5 | | |
-| 41 | Bedrock & Llama Guard | | /5 | | |
-| 42 | Ragas Evals | | /5 | | |
-| 43 | Eval Metrics | | /5 | | |
-| 44 | Custom Eval Engines | | /5 | | |
-| 45 | Langfuse & LangSmith | | /5 | | |
-| 46 | Pydantic Logfire | | /5 | | |
-| 47 | Locust Load Testing | | /5 | | |
-| 48 | Ebbinghaus Memory | | /5 | | |
-| 49 | Loop Engineering | | /5 | | |
-| 50 | Loop Optimization | | /5 | | |
-| 51–60 | BPGpt Capstone | | /50 | | |
+| 31 | Kubernetes Core (Minikube) | | /5 | | |
+| 32 | EKS Architecture & Provisioning | | /5 | | |
+| 33 | Kubernetes Security & Helm | | /5 | | |
+| 34 | Cloudflare Tunnels (Zero Trust) | | /5 | | |
+| 35 | Sentinel, Splunk & KQL | | /5 | | |
+| 36 | Compliance (SOC 2 / ISO 27001) | | /5 | | |
+| 37 | NeMo Guardrails Core | | /5 | | |
+| 38 | Colang Flows | | /5 | | |
+| 39 | Bedrock Guardrails & Llama Guard | | /5 | | |
+| 40 | Ragas RAG Evaluation | | /5 | | |
+| 41 | Eval Datasets & CI/CD | | /5 | | |
+| 42 | LLM Observability (Langfuse) | | /5 | | |
+| 43 | Pydantic Logfire | | /5 | | |
+| 44 | Load Testing (Locust) | | /5 | | |
+| 45 | Loop Engineering & Optimization | | /5 | | |
+| 46–50 | BPGpt Capstone — Infrastructure | | /25 | | |
+| 51–60 | BPGpt Capstone — Agents & Launch | | /50 | | |

@@ -134,22 +134,22 @@ Install-Module -Name PSScriptAnalyzer -Force -Scope CurrentUser
 py -m pip install pre-commit
 ```
 
-### 15. Locust (Load testing) — Day 47
+### 15. Locust (Load testing) — Day 44
 ```powershell
 py -m pip install locust
 ```
 
-### 16. Ragas (LLM evaluation) — Day 42
+### 16. Ragas (LLM evaluation) — Day 40
 ```powershell
 py -m pip install ragas
 ```
 
-### 17. NeMo Guardrails — Day 39
+### 17. NeMo Guardrails — Day 37
 ```powershell
 py -m pip install nemoguardrails
 ```
 
-### 18. Logfire (Pydantic observability) — Day 46
+### 18. Logfire (Pydantic observability) — Day 43
 ```powershell
 py -m pip install logfire
 ```
@@ -168,67 +168,33 @@ py -m pip install mcp
 
 ## 📦 One-Shot Install Script
 
-Run this to install **everything** you'll need across all 60 days:
+Run **[`setup.ps1`](../setup.ps1)** (repo root) in PowerShell 7. It:
+
+1. Fixes pip, installs pipx + Poetry + uv
+2. Creates a shared `.venv` at the repo root and installs the core Python stack there (pydantic, FastAPI, httpx, mypy, pre-commit, pytest, ruff, LangChain, LangGraph, ChromaDB, MCP SDK)
+3. Installs Node tools (`supabase`, `n8n`), PSScriptAnalyzer, and Minikube
+4. Pulls the Ollama models
 
 ```powershell
-# ========================================
-# 60-Day Study Plan — Full Setup Script
-# Run in PowerShell 7 (pwsh)
-# ========================================
-
-Write-Host "=== Step 1: Fix pip ===" -ForegroundColor Cyan
-py -m ensurepip --upgrade
-py -m pip install --upgrade pip
-
-Write-Host "=== Step 2: Install Python tools ===" -ForegroundColor Cyan
-py -m pip install pipx
-py -m pipx ensurepath
-pipx install poetry
-
-Write-Host "=== Step 3: Install Python packages ===" -ForegroundColor Cyan
-py -m pip install `
-    pydantic `
-    fastapi `
-    "uvicorn[standard]" `
-    httpx `
-    mypy `
-    pre-commit `
-    langchain `
-    langchain-core `
-    langchain-community `
-    langgraph `
-    langchain-google-genai `
-    langchain-groq `
-    chromadb `
-    crewai `
-    crewai-tools `
-    mcp `
-    nemoguardrails `
-    ragas `
-    locust `
-    logfire `
-    pytest `
-    ruff `
-    black
-
-Write-Host "=== Step 4: Install Node.js tools ===" -ForegroundColor Cyan
-npm install -g supabase n8n
-
-Write-Host "=== Step 5: Install PowerShell modules ===" -ForegroundColor Cyan
-Install-Module -Name PSScriptAnalyzer -Force -Scope CurrentUser
-
-Write-Host "=== Step 6: Install Minikube ===" -ForegroundColor Cyan
-winget install Kubernetes.minikube --accept-package-agreements --accept-source-agreements
-
-Write-Host "=== Step 7: Pull Ollama models ===" -ForegroundColor Cyan
-ollama pull llama3.2
-ollama pull nomic-embed-text
-
-Write-Host "=== DONE ===" -ForegroundColor Green
-Write-Host "Restart your terminal, then run 'verify-setup.ps1' to check everything." -ForegroundColor Yellow
+cd <repo-root>
+pwsh -File .\setup.ps1
+# then verify:
+pwsh -File .\verify-setup.ps1
 ```
 
-Save this as `setup.ps1` in the repo root and run it.
+> ⚠️ **Why not install everything globally?** The original plan dumped 20+ packages into the global Python. `crewai`, `nemoguardrails`, `ragas`, `locust`, and `logfire` pin conflicting versions of LangChain/Pydantic — installing them together breaks the core stack. They are installed **per-lab in their own venv on the day you need them** (Days 28, 37, 40, 43, 44):
+>
+> ```powershell
+> cd labs/day-28-crewai
+> py -m venv .venv; .\.venv\Scripts\Activate.ps1
+> py -m pip install crewai crewai-tools
+> ```
+
+To activate the shared environment on any study day:
+```powershell
+cd <repo-root>
+.\.venv\Scripts\Activate.ps1
+```
 
 ---
 
@@ -317,7 +283,7 @@ ollama pull llama3.2
 # Embedding model for vector search
 ollama pull nomic-embed-text
 
-# Safety/guardrails model (Day 41)
+# Safety/guardrails model (Day 39)
 ollama pull llama-guard3
 
 # Small fast model for testing

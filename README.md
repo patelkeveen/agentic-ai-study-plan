@@ -16,6 +16,8 @@ I'm a Senior IT Engineer specializing in Microsoft 365, Entra ID, and cloud secu
 | **Phase 2** — Leveling Up & Projects | 11–30 | ⬜ Not Started | 0/20 |
 | **Phase 3** — Expertise & Capstone | 31–60 | ⬜ Not Started | 0/30 |
 
+**Milestones:** Job-ready in 10 days → leveled up after 20 more (Day 30) → excelling after 30 more (Day 60).
+
 **Daily log:** [PROGRESS.md](./PROGRESS.md)
 
 ---
