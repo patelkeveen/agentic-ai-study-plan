@@ -46,12 +46,23 @@ Invoke-Step "Step 3: shared .venv with core Python stack" {
     # conflicting LangChain/Pydantic versions.
 }
 
-Invoke-Step "Step 4: Node tools (supabase, n8n)" {
-    npm install -g supabase n8n
+Invoke-Step "Step 4: Node tools (supabase CLI)" {
+    # n8n is NOT installed via npm: its isolated-vm native module fails to
+    # build on current Node. Run n8n via Docker instead (see Day 7):
+    #   docker run -d --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n n8nio/n8n
+    npm install -g supabase
 }
 
 Invoke-Step "Step 5: PSScriptAnalyzer" {
-    Install-Module -Name PSScriptAnalyzer -Force -Scope CurrentUser -ErrorAction Stop
+    # Save-PSResource to a non-OneDrive path: Install-PSResource fails when
+    # the Documents folder is OneDrive-redirected.
+    $dest = "$env:LOCALAPPDATA\PowerShell\Modules"
+    New-Item -ItemType Directory -Force $dest | Out-Null
+    Save-PSResource -Name PSScriptAnalyzer -Path $dest -TrustRepository -ErrorAction Stop
+    $cur = [Environment]::GetEnvironmentVariable('PSModulePath', 'User')
+    if ($cur -notlike "*$dest*") {
+        [Environment]::SetEnvironmentVariable('PSModulePath', ($cur ? "$cur;$dest" : $dest), 'User')
+    }
 }
 
 Invoke-Step "Step 6: Minikube" {
