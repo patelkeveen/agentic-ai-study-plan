@@ -4,6 +4,19 @@ Here is the master list of official documentation, GitHub repositories, tools, a
 
 ---
 
+## 📺 Top YouTube Channels (Free Courses)
+
+* **[LangChain Official](https://www.youtube.com/@LangChain)** — Best for LangGraph, agents, and tool calling.
+* **[n8n Official](https://www.youtube.com/@n8n-io)** — Workflow automation tutorials and webhooks.
+* **[Fireship](https://www.youtube.com/@Fireship)** — Quick overviews of any technology in 100 seconds (start here for new concepts).
+* **[TechWorld with Nana](https://www.youtube.com/@TechWorldwithNana)** — Top-tier free courses on Docker, Kubernetes, Terraform, and CI/CD.
+* **[NetworkChuck](https://www.youtube.com/@NetworkChuck)** — Fun, practical tutorials on self-hosting, networking, and cloud.
+* **[freeCodeCamp](https://www.youtube.com/@freecodecamp)** — Full-length (4-10 hour) free courses on everything.
+* **[John Savill](https://www.youtube.com/@NTFAQGuy)** — Deep dives into Azure, Entra ID, and Microsoft certifications.
+* **[Raghuveer Singh](https://www.youtube.com/@yourSC300course)** — Your SC-300 study track.
+
+---
+
 ## 🛠️ Core AI Orchestration & Frameworks
 
 * **LangGraph Documentation**
