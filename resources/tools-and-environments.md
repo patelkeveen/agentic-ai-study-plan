@@ -206,8 +206,8 @@ Create these accounts **before Day 1**. All are free, no credit card required (e
 
 | Service | URL | What For | Free Tier |
 |:--------|:----|:---------|:----------|
-| **Google AI Studio** | https://aistudio.google.com/ | Gemini API key for LLM calls | Free — generous rate limits |
-| **Groq** | https://console.groq.com/ | Fast free LLM inference (Llama/Mixtral) | Free — rate limited |
+| **Google AI Studio** | https://aistudio.google.com/apikey | Gemini API key for LLM calls (separate from any Google AI Pro chat subscription — the API free tier is independent) | Free — generous rate limits |
+| **Groq** *(optional)* | https://console.groq.com/ | Fallback LLM inference — skip if using Gemini + local Ollama | Free — rate limited |
 | **GitHub** | https://github.com | You already have this | Free |
 
 ### Priority 2 — Needed by Day 5
