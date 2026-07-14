@@ -1,0 +1,36 @@
+# Secrets — NEVER commit these
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+dist/
+*.egg-info/
+
+# Node
+node_modules/
+
+# Terraform — state files contain plaintext secrets
+*.tfstate
+*.tfstate.*
+.terraform/
+*.tfvars
+!example.tfvars
+
+# Supabase local
+supabase/.temp/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/settings.json
