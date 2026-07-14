@@ -41,7 +41,9 @@ if (Test-Path $venvPy) {
     $results += [pscustomobject]@{ Tool = '.venv'; Status = 'MISSING'; Detail = 'Run setup.ps1 first' }
 }
 
-# PowerShell modules
+# PowerShell modules (setup.ps1 installs to LOCALAPPDATA; ensure it's on the path)
+$localMods = "$env:LOCALAPPDATA\PowerShell\Modules"
+if ((Test-Path $localMods) -and ($env:PSModulePath -notlike "*$localMods*")) { $env:PSModulePath += ";$localMods" }
 Test-Tool "PSScriptAnalyzer" { (Get-Module -ListAvailable PSScriptAnalyzer | Select-Object -First 1).Version.ToString() }
 
 $results | Format-Table -AutoSize
