@@ -10,11 +10,11 @@ Based on your current environment, you already have:
 
 | Tool | Version | Status |
 |:-----|:--------|:-------|
-| Python | 3.14.6 (via `py`) | ✅ Ready |
-| Node.js | 24.12.0 | ✅ Ready |
-| npm | 11.13.0 | ✅ Ready |
-| Git | 2.54.0 | ✅ Ready |
-| Docker Desktop | 29.5.3 | ✅ Ready |
+| Python | 3.12.10 (via `py`) | ✅ Ready — 3.12 has the best wheel coverage for this stack |
+| Node.js | 26.4.0 | ✅ Ready |
+| npm | 11.17.0 | ✅ Ready |
+| Git | 2.55.0 | ✅ Ready |
+| Docker Desktop | 29.6.1 | ✅ Ready |
 | Terraform | 1.15.7 | ✅ Ready |
 | AWS CLI | 2.35.11 | ✅ Ready |
 | GitHub CLI (gh) | 2.95.0 | ✅ Ready |
