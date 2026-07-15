@@ -1,5 +1,6 @@
-# Private — personal strategy doc, never publish
+# Private — personal strategy + protocol docs, never publish
 STRATEGY.md
+PROTOCOL.md
 
 # Secrets — NEVER commit these
 .env
